@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vinnero — Carta de Vinhos Digital e Inteligente</title>
+  <meta name="description" content="Carta de vinhos digital, intuitiva e em tempo real para restaurantes de alta gastronomia e lojas especializadas.">
+  
+  <!-- Tipografia: Playfair Display + Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            wine: {
+              DEFAULT: '#722F37',
+              hover: '#5A232A',
+              subtle: '#FAF0F2',
+              border: '#E8D2D5'
+            },
+            sand: {
+              25: '#FDFCF9',
+              50: '#FAF8F5',
+              100: '#F3EFEA',
+              200: '#E7E2D9'
+            },
+            ink: {
+              DEFAULT: '#1D1D20',
+              muted: '#66666D',
+              soft: '#9CA3AF'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            serif: ['"Playfair Display"', 'Georgia', 'serif']
+          },
+          boxShadow: {
+            'card': '0 4px 20px -2px rgba(27, 27, 30, 0.04)',
+            'card-hover': '0 12px 30px -4px rgba(27, 27, 30, 0.08)',
+            'phone': '0 25px 60px -15px rgba(114, 47, 55, 0.12), 0 10px 25px -5px rgba(0, 0, 0, 0.04)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Estilização suave para rolagem e detalhes */
+    html {
+      scroll-behavior: smooth;
+    }
+    .custom-glass {
+      background: rgba(253, 252, 249, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+  </style>
+</head>
+<body class="bg-sand-25 text-ink font-sans antialiased selection:bg-wine selection:text-white">
+
+  <!-- ==================== HEADER NAVEGAÇÃO ==================== -->
+  <header class="sticky top-0 z-50 custom-glass border-b border-sand-200/80 transition-all">
+    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+      
+      <!-- Logotipo Vinnero -->
+      <a href="#" class="flex items-center gap-3 group">
+        <!-- Imagem da Logo com fallback automático -->
+        <img src="logo.png" alt="Vinnero" class="h-9 sm:h-10 w-auto object-contain transition-opacity group-hover:opacity-90" onerror="this.onerror=null; this.classList.add('hidden'); document.getElementById('header-logo-svg').classList.remove('hidden');">
+        
+        <div id="header-logo-svg" class="hidden flex items-center gap-2.5">
+          <svg class="h-8 w-auto text-[#261E1B]" viewBox="0 0 100 130" fill="currentColor">
+            <path d="M48 6 C52 14, 58 18, 70 14" stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"/>
+            <path d="M48 6 L28 4 C24 16, 32 24, 46 22 Z" stroke="currentColor" stroke-width="4.5" fill="none"/>
+            <path d="M48 10 L48 40" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="68" cy="40" r="4.5" stroke="currentColor" stroke-width="3" fill="none"/>
+            <circle cx="48" cy="42" r="14" stroke="currentColor" stroke-width="5" fill="none"/>
+            <circle cx="26" cy="58" r="13" stroke="currentColor" stroke-width="5" fill="none"/>
+            <circle cx="70" cy="58" r="13" stroke="currentColor" stroke-width="5" fill="none"/>
+            <circle cx="34" cy="85" r="13" stroke="currentColor" stroke-width="5" fill="none"/>
+            <circle cx="62" cy="85" r="13" stroke="currentColor" stroke-width="5" fill="none"/>
+            <circle cx="48" cy="98" r="4" stroke="currentColor" stroke-width="2.5" fill="none"/>
+            <circle cx="48" cy="112" r="12" stroke="currentColor" stroke-width="5" fill="none"/>
+          </svg>
+          <span class="font-sans font-bold text-2xl tracking-[0.15em] text-[#261E1B]">VINNERO</span>
+        </div>
+
+        <span class="inline-flex items-center text-[10px] uppercase font-semibold tracking-wider text-wine bg-wine-subtle border border-wine-border px-2.5 py-0.5 rounded-full">
+          Carta Digital
+        </span>
+      </a>
+
+      <!-- Links Desktop -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-ink-muted">
+        <a href="#como-funciona" class="hover:text-ink transition-colors">Como funciona</a>
+        <a href="#recursos" class="hover:text-ink transition-colors">Recursos</a>
+        <a href="#experiencia" class="hover:text-ink transition-colors">No salão</a>
+        <a href="#planos" class="hover:text-ink transition-colors">Planos</a>
+      </nav>
+
+      <!-- Botão CTA Direto -->
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/5531982989377?text=Ol%C3%A1!%20Gostaria%20de%20come%C3%A7ar%20o%20teste%20gratuito%20da%20Vinnero." target="_blank" rel="noopener noreferrer" class="bg-wine hover:bg-wine-hover text-white text-xs sm:text-sm font-medium px-5 py-2.5 rounded-full transition-all duration-200 shadow-sm hover:shadow active:scale-95">
+          Começar teste
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="pt-16 pb-20 md:pt-24 md:pb-28 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+        
+        <!-- Conteúdo Textual do Hero -->
+        <div class="lg:col-span-7 text-center lg:text-left">
+          
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sand-100 border border-sand-200 text-xs font-semibold text-ink-muted mb-6">
+            <span class="w-2 h-2 rounded-full bg-wine animate-pulse"></span>
+            Sem folhas amassadas. Sem atrito. Em tempo real.
+          </div>
+
+          <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-ink leading-[1.12]">
+            Apresente sua adega com a <span class="italic font-normal text-wine">elegância</span> que seus vinhos merecem.
+          </h1>
+
+          <p class="mt-6 text-base sm:text-lg text-ink-muted font-normal leading-relaxed max-w-xl mx-auto lg:mx-0">
+            Substitua a carta impressa obsoleta por uma experiência digital limpa e fluida. Seus clientes consultam fichas técnicas, harmonizações e safras direto pela câmera do celular.
+          </p>
+
+          <!-- CTAs de Ação -->
+          <div class="mt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <a href="https://wa.me/5531982989377?text=Ol%C3%A1!%20Gostaria%20de%20experimentar%20os%2014%20dias%20gr%C3%A1tis%20da%20Vinnero." target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-wine hover:bg-wine-hover text-white font-medium px-8 py-3.5 rounded-full transition-all text-center shadow-md hover:shadow-lg active:scale-95">
+              Experimentar 14 dias grátis
+            </a>
+            <a href="#como-funciona" class="w-full sm:w-auto bg-white hover:bg-sand-50 border border-sand-200 text-ink font-medium px-8 py-3.5 rounded-full transition-all text-center shadow-xs">
+              Como funciona o fluxo
+            </a>
+          </div>
+
+          <div class="mt-5 flex items-center justify-center lg:justify-start gap-2 text-xs text-ink-muted">
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            <span>Atualizações contínuas todo mês guiadas pelo feedback dos nossos parceiros</span>
+          </div>
+
+          <!-- Indicadores de Impacto -->
+          <div class="mt-10 pt-8 border-t border-sand-200 grid grid-cols-3 gap-6 text-left">
+            </div>
+            <div>
+              <p class="font-serif text-2xl sm:text-3xl font-bold text-wine">Zero</p>
+              <p class="text-[11px] sm:text-xs text-ink-muted mt-1 uppercase tracking-wider font-medium">Custo de impressão</p>
+            </div>
+            <div>
+              <p class="font-serif text-2xl sm:text-3xl font-bold text-wine">100%</p>
+              <p class="text-[11px] sm:text-xs text-ink-muted mt-1 uppercase tracking-wider font-medium">Estoque alinhado</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Mockup Visual Clean do Smartphone com a Carta Real -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="w-full max-w-[340px] bg-white rounded-[2.5rem] p-4 shadow-phone border border-sand-200 relative">
+            
+            <!-- Detalhe superior do Smartphone -->
+            <div class="flex justify-between items-center px-4 py-2 border-b border-sand-100 mb-3 text-[10px] text-ink-muted font-medium">
+              <span>20:45</span>
+              <div class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span class="text-[9px] uppercase tracking-wider font-bold text-ink-muted">Mesa 08</span>
+              </div>
+            </div>
+
+            <!-- Header da Casa dentro da carta digital -->
+            <div class="px-2 mb-3.5">
+              <span class="text-[9px] font-bold tracking-widest uppercase text-wine">Carta de Vinhos Digital</span>
+              <h3 class="font-serif text-lg font-bold text-ink">diVino Restaurante</h3>
+              <p class="text-[10px] text-ink-muted">Seleção do sommelier para a noite</p>
+            </div>
+
+            <!-- Abas de Filtros Limpos -->
+            <div class="flex gap-1.5 px-2 mb-3.5 overflow-x-auto text-[11px]">
+              <span class="px-3 py-1 rounded-full bg-wine text-white font-medium shadow-xs">Tintos</span>
+              <span class="px-3 py-1 rounded-full bg-sand-100 text-ink-muted hover:bg-sand-200">Brancos</span>
+              <span class="px-3 py-1 rounded-full bg-sand-100 text-ink-muted hover:bg-sand-200">Rosés</span>
+              <span class="px-3 py-1 rounded-full bg-sand-100 text-ink-muted hover:bg-sand-200">Espumantes</span>
+            </div>
+
+            <!-- Rótulo 1 -->
+            <div class="p-3 bg-sand-50 rounded-2xl border border-sand-200/80 mb-2.5 transition-all hover:border-wine/30">
+              <div class="flex justify-between items-start gap-2">
+                <div>
+                  <span class="text-[10px] font-medium text-ink-muted">Mendoza, Argentina • 2022</span>
+                  <h4 class="text-sm font-semibold text-ink leading-tight mt-0.5">Catena Zapata Malbec</h4>
+                  <p class="text-[11px] text-ink-muted mt-1 leading-snug">Aromas de ameixa madura, baunilha suave e final elegante.</p>
+                </div>
+                <div class="text-right shrink-0">
+                  <span class="text-xs font-bold text-wine">R$ 210</span>
+                </div>
+              </div>
+              <div class="mt-2.5 pt-2 border-t border-sand-200/60 flex justify-between items-center text-[10px]">
+                <span class="text-ink-muted flex items-center gap-1">
+                  <span>🍽️</span> Carnes nobres e bife ancho
+                </span>
+                <span class="text-emerald-700 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded font-medium text-[9px]">
+                  Em adega
+                </span>
+              </div>
+            </div>
+
+            <!-- Rótulo 2 -->
+            <div class="p-3 bg-sand-50 rounded-2xl border border-sand-200/80 transition-all hover:border-wine/30">
+              <div class="flex justify-between items-start gap-2">
+                <div>
+                  <span class="text-[10px] font-medium text-ink-muted">Douro, Portugal • 2021</span>
+                  <h4 class="text-sm font-semibold text-ink leading-tight mt-0.5">Quinta do Crasto Tinto</h4>
+                  <p class="text-[11px] text-ink-muted mt-1 leading-snug">Frutas silvestres, notas florais e corpo equilibrado.</p>
+                </div>
+                <div class="text-right shrink-0">
+                  <span class="text-xs font-bold text-wine">R$ 195</span>
+                </div>
+              </div>
+              <div class="mt-2.5 pt-2 border-t border-sand-200/60 flex justify-between items-center text-[10px]">
+                <span class="text-ink-muted flex items-center gap-1">
+                  <span>🍽️</span> Cordeiro e risoto de funghi
+                </span>
+                <span class="text-emerald-700 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded font-medium text-[9px]">
+                  Em adega
+                </span>
+              </div>
+            </div>
+
+            <!-- Footer do Mockup -->
+            <div class="mt-3 text-center">
+              <span class="text-[10px] text-ink-soft">Leitura instantânea via QR Code na mesa</span>
+              <p class="text-[9px] text-ink-soft/75 italic mt-1">*Imagem meramente ilustrativa</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== COMO FUNCIONA (3 PASSOS) ==================== -->
+  <section id="como-funciona" class="py-20 bg-white border-y border-sand-200">
+    <div class="max-w-6xl mx-auto px-6">
+      
+      <div class="max-w-xl mx-auto text-center mb-16">
+        <span class="text-wine text-xs font-bold uppercase tracking-widest">Fluxo Inteligente</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold mt-2 text-ink">Da adega à mesa em 3 etapas simples</h2>
+        <p class="text-sm text-ink-muted mt-3">Você não precisa de equipamentos caros nem suporte técnico complexo.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <!-- Passo 1 -->
+        <div class="p-8 rounded-3xl bg-sand-25 border border-sand-200 hover:border-wine/30 transition-all shadow-card hover:shadow-card-hover">
+          <span class="font-serif text-3xl font-bold text-wine/40">01</span>
+          <h3 class="font-serif text-xl font-bold mt-4 mb-2 text-ink">Cadastre seus rótulos</h3>
+          <p class="text-sm text-ink-muted leading-relaxed">
+            Adicione safras, regiões, uvas, fotos e as sugestões de harmonização da sua cozinha em um painel limpo e intuitivo.
+          </p>
+        </div>
+
+        <!-- Passo 2 -->
+        <div class="p-8 rounded-3xl bg-sand-25 border border-sand-200 hover:border-wine/30 transition-all shadow-card hover:shadow-card-hover">
+          <span class="font-serif text-3xl font-bold text-wine/40">02</span>
+          <h3 class="font-serif text-xl font-bold mt-4 mb-2 text-ink">Gere o QR Code</h3>
+          <p class="text-sm text-ink-muted leading-relaxed">
+            Personalize com o nome do restaurante e coloque nos displays de mesa ou no cardápio principal. O cliente abre no navegador em 1 segundo.
+          </p>
+        </div>
+
+        <!-- Passo 3 -->
+        <div class="p-8 rounded-3xl bg-sand-25 border border-sand-200 hover:border-wine/30 transition-all shadow-card hover:shadow-card-hover">
+          <span class="font-serif text-3xl font-bold text-wine/40">03</span>
+          <h3 class="font-serif text-xl font-bold mt-4 mb-2 text-ink">Atualize sem custo</h3>
+          <p class="text-sm text-ink-muted leading-relaxed">
+            Acabou uma garrafa durante o jantar? Pause com um toque no celular. Chegou safra nova? Publique sem gastar um centavo com gráfica.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== RECURSOS / FUNCIONALIDADES ==================== -->
+  <section id="recursos" class="py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      
+      <div class="max-w-2xl mx-auto text-center mb-16">
+        <span class="text-wine text-xs font-bold uppercase tracking-widest">Recursos Essenciais</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold mt-2 text-ink">Pensado para a rotina dinâmica do salão</h2>
+        <p class="text-sm text-ink-muted mt-3">Tudo o que seu restaurante ou loja especializada precisa para vender melhor.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Recurso 1 -->
+        <div class="bg-white p-8 rounded-3xl border border-sand-200 shadow-card hover:shadow-card-hover transition-all">
+          <div class="w-10 h-10 rounded-2xl bg-wine-subtle flex items-center justify-center text-wine font-bold text-sm mb-5 border border-wine-border">
+            BR
+          </div>
+          <h4 class="font-semibold text-base text-ink mb-2">Infraestrutura 100% brasileira</h4>
+          <p class="text-sm text-ink-muted leading-relaxed">Servidores de alta velocidade hospedados no Brasil, garantindo carregamento ultrarrápido na mesa e conformidade com a LGPD.</p>
+        </div>
+
+        <!-- Recurso 2 -->
+        <div class="bg-white p-8 rounded-3xl border border-sand-200 shadow-card hover:shadow-card-hover transition-all">
+          <div class="w-10 h-10 rounded-2xl bg-wine-subtle flex items-center justify-center text-wine font-bold text-sm mb-5 border border-wine-border">
+            QR
+          </div>
+          <h4 class="font-semibold text-base text-ink mb-2">Zero atrito para o cliente</h4>
+          <p class="text-sm text-ink-muted leading-relaxed">Sem exigir download de aplicativo na Google Play ou App Store. Carregamento ultra leve em conexões 4G e Wi-Fi.</p>
+        </div>
+
+        <!-- Recurso 3 -->
+        <div class="bg-white p-8 rounded-3xl border border-sand-200 shadow-card hover:shadow-card-hover transition-all">
+          <div class="w-10 h-10 rounded-2xl bg-wine-subtle flex items-center justify-center text-wine font-bold text-sm mb-5 border border-wine-border">
+            FT
+          </div>
+          <h4 class="font-semibold text-base text-ink mb-2">Fichas técnicas explicativas</h4>
+          <p class="text-sm text-ink-muted leading-relaxed">Notas de prova, teor alcoólico, vinícola e região apresentadas de forma didática para clientes experientes e iniciantes.</p>
+        </div>
+
+        <!-- Recurso 4 -->
+        <div class="bg-white p-8 rounded-3xl border border-sand-200 shadow-card hover:shadow-card-hover transition-all">
+          <div class="w-10 h-10 rounded-2xl bg-wine-subtle flex items-center justify-center text-wine font-bold text-sm mb-5 border border-wine-border">
+            HZ
+          </div>
+          <h4 class="font-semibold text-base text-ink mb-2">Harmonizações do cardápio</h4>
+          <p class="text-sm text-ink-muted leading-relaxed">Sugira vinhos exatos para carnes, peixes, massas ou queijos da sua casa, incentivando a escolha de rótulos de maior margem.</p>
+        </div>
+
+        <!-- Recurso 5 -->
+        <div class="bg-white p-8 rounded-3xl border border-sand-200 shadow-card hover:shadow-card-hover transition-all">
+          <div class="w-10 h-10 rounded-2xl bg-wine-subtle flex items-center justify-center text-wine font-bold text-sm mb-5 border border-wine-border">
+            RT
+          </div>
+          <h4 class="font-semibold text-base text-ink mb-2">Controle de ruptura imediato</h4>
+          <p class="text-sm text-ink-muted leading-relaxed">Elimine o constrangimento do garçom voltar à mesa dizendo que o vinho escolhido na carta física está esgotado.</p>
+        </div>
+
+        <!-- Recurso 6 -->
+        <div class="bg-white p-8 rounded-3xl border border-sand-200 shadow-card hover:shadow-card-hover transition-all">
+          <div class="w-10 h-10 rounded-2xl bg-wine-subtle flex items-center justify-center text-wine font-bold text-sm mb-5 border border-wine-border">
+            LJ
+          </div>
+          <h4 class="font-semibold text-base text-ink mb-2">Modo Restaurante ou Empório</h4>
+          <p class="text-sm text-ink-muted leading-relaxed">Estruturado tanto para o consumo no local quanto para venda de garrafas para viagem em adegas e lojas parceiras.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== EVOLUÇÃO CONTÍNUA & FEEDBACK DOS PARCEIROS ==================== -->
+  <section class="py-16 bg-white border-y border-sand-200">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="bg-gradient-to-br from-sand-50 via-sand-25 to-white border border-sand-200/90 rounded-3xl p-8 sm:p-12 shadow-card flex flex-col lg:flex-row items-center justify-between gap-10">
+        
+        <div class="max-w-2xl text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-wine-subtle border border-wine-border text-wine text-[11px] font-semibold uppercase tracking-wider mb-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-wine"></span>
+            Evolução Contínua & Co-criação
+          </div>
+          
+          <h3 class="font-serif text-2xl sm:text-3xl font-bold text-ink leading-snug">
+            Um aplicativo que evolui todo mês com a rotina do seu salão.
+          </h3>
+          
+          <p class="mt-4 text-sm sm:text-base text-ink-muted leading-relaxed">
+            A Vinnero não é uma plataforma estática. Nosso aplicativo e o sistema da carta recebem <strong>novas melhorias e funcionalidades todos os meses</strong>. Cada atualização nasce ouvindo diretamente as necessidades, sugestões e desafios reais compartilhados pelos nossos restaurantes e parceiros no dia a dia.
+          </p>
+
+          <div class="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-medium text-ink">
+            <div class="flex items-center gap-2 bg-white px-3.5 py-2 rounded-full border border-sand-200 shadow-xs">
+              <span class="text-wine font-bold">✓</span> Ciclos mensais de aprimoramento
+            </div>
+            <div class="flex items-center gap-2 bg-white px-3.5 py-2 rounded-full border border-sand-200 shadow-xs">
+              <span class="text-wine font-bold">✓</span> Canal direto para envio de feedbacks
+            </div>
+            <div class="flex items-center gap-2 bg-white px-3.5 py-2 rounded-full border border-sand-200 shadow-xs">
+              <span class="text-wine font-bold">✓</span> Melhorias automáticas sem custo extra
+            </div>
+          </div>
+        </div>
+
+        <!-- Box de destaque / Badge visual -->
+        <div class="shrink-0 w-full sm:w-auto flex flex-col items-center justify-center bg-white p-7 rounded-2xl border border-sand-200 shadow-xs text-center min-w-[240px]">
+          <span class="text-xs uppercase tracking-widest font-semibold text-wine">Ritmo de Lançamento</span>
+          <span class="font-serif text-4xl font-bold text-ink mt-2">Mensal</span>
+          <p class="text-xs text-ink-muted mt-2 max-w-[180px]">
+            Novos recursos desenvolvidos lado a lado com quem está no salão.
+          </p>
+          <div class="mt-4 pt-3 border-t border-sand-100 w-full flex items-center justify-center gap-1.5 text-[11px] text-emerald-700 font-medium">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+            Plataforma em constante evolução
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PROVA SOCIAL REAL ==================== -->
+  <section id="experiencia" class="py-20 bg-sand-25 border-b border-sand-200">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="bg-white border border-sand-200 p-8 sm:p-12 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-8 shadow-card">
+        <div class="max-w-xl">
+          <span class="inline-block px-3 py-1 rounded-full bg-sand-100 border border-sand-200 text-ink text-xs font-semibold uppercase tracking-wider mb-4">Em operação no salão</span>
+          <h3 class="font-serif text-2xl sm:text-3xl font-bold text-ink mb-3">diVino Restaurante</h3>
+          <p class="text-xs text-ink-muted uppercase tracking-wider mb-4">Vale do Sol • Nova Lima, MG</p>
+          <p class="text-ink-muted text-sm sm:text-base leading-relaxed italic">
+            "A experiência digital valorizou os rótulos da adega e tornou a consulta dos clientes rápida, moderna e descomplicada."
+          </p>
+        </div>
+        <div class="shrink-0 text-center">
+          <div class="w-28 h-28 bg-sand-50 border border-sand-200 rounded-2xl flex flex-col items-center justify-center p-3 shadow-xs">
+            <img src="logo.png" alt="Vinnero" class="h-8 w-auto object-contain mb-1" onerror="this.onerror=null; this.classList.add('hidden'); document.getElementById('mockup-logo-svg').classList.remove('hidden');">
+            <div id="mockup-logo-svg" class="hidden flex items-center justify-center mb-1">
+              <svg class="h-6 w-auto text-[#261E1B]" viewBox="0 0 100 130" fill="currentColor">
+                <circle cx="48" cy="42" r="14" stroke="currentColor" stroke-width="5" fill="none"/>
+                <circle cx="26" cy="58" r="13" stroke="currentColor" stroke-width="5" fill="none"/>
+                <circle cx="70" cy="58" r="13" stroke="currentColor" stroke-width="5" fill="none"/>
+                <circle cx="34" cy="85" r="13" stroke="currentColor" stroke-width="5" fill="none"/>
+                <circle cx="62" cy="85" r="13" stroke="currentColor" stroke-width="5" fill="none"/>
+                <circle cx="48" cy="112" r="12" stroke="currentColor" stroke-width="5" fill="none"/>
+              </svg>
+            </div>
+            <span class="text-[10px] text-ink-soft">Carta Ativa</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PLANOS ==================== -->
+  <section id="planos" class="py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="max-w-xl mx-auto text-center mb-16">
+        <span class="text-wine text-xs font-bold uppercase tracking-widest">Planos e Valores</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold mt-2 text-ink">Transparência para o seu negócio</h2>
+        <p class="text-ink-muted text-sm mt-3">14 dias de teste gratuito em qualquer modalidade. Sem custos ocultos.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 items-stretch">
+        
+        <!-- Plano Essencial -->
+        <div class="bg-white p-8 rounded-3xl border border-sand-200 shadow-card flex flex-col justify-between hover:shadow-card-hover transition-all">
+          <div>
+            <h3 class="font-serif text-xl font-bold text-ink">Essencial</h3>
+            <p class="text-xs text-ink-muted mt-1">Para cartas compactas e bistrôs</p>
+            <div class="mt-6 mb-6">
+              <span class="font-serif text-4xl font-bold text-ink">R$ 197</span>
+              <span class="text-xs text-ink-muted">/mês</span>
+            </div>
+            <ul class="space-y-3.5 text-sm text-ink-muted border-t border-sand-100 pt-6">
+              <li class="flex items-center gap-2.5">
+                <span class="text-wine font-bold">✓</span> Até 100 rótulos ativos
+              </li>
+              <li class="flex items-center gap-2.5">
+                <span class="text-wine font-bold">✓</span> QR Code personalizado
+              </li>
+              <li class="flex items-center gap-2.5">
+                <span class="text-wine font-bold">✓</span> Atualização instantânea
+              </li>
+              <li class="flex items-center gap-2.5">
+                <span class="text-wine font-bold">✓</span> Suporte por e-mail e WhatsApp
+              </li>
+            </ul>
+          </div>
+          <a href="https://wa.me/5531982989377?text=Ol%C3%A1!%20Gostaria%20de%20iniciar%20o%20teste%20gratuito%20no%20Plano%20Essencial." target="_blank" rel="noopener noreferrer" class="mt-8 block text-center py-3.5 px-6 rounded-full border border-sand-200 text-ink font-medium text-sm hover:bg-sand-50 transition-colors">
+            Começar teste grátis
+          </a>
+        </div>
+
+        <!-- Plano Profissional (Destaque Bordô Suave) -->
+        <div class="bg-white p-8 rounded-3xl border-2 border-wine shadow-phone flex flex-col justify-between relative">
+          <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-wine text-white text-[10px] font-bold px-3.5 py-1 rounded-full uppercase tracking-wider shadow-sm">
+            Mais Escolhido
+          </span>
+
+          <div>
+            <h3 class="font-serif text-xl font-bold text-ink">Profissional</h3>
+            <p class="text-xs text-ink-muted mt-1">Para restaurantes focados em enogastronomia</p>
+            
+            <div class="mt-6 mb-6">
+              <span class="font-serif text-4xl font-bold text-wine">R$ 397</span>
+              <span class="text-xs text-ink-muted">/mês</span>
+            </div>
+
+            <ul class="space-y-3.5 text-sm text-ink border-t border-sand-100 pt-6">
+              <li class="flex items-center gap-2.5 font-medium">
+                <span class="text-wine font-bold">✓</span> Rótulos ilimitados
+              </li>
+              <li class="flex items-center gap-2.5 font-medium">
+                <span class="text-wine font-bold">✓</span> Harmonizações inteligentes por prato
+              </li>
+              <li class="flex items-center gap-2.5 font-medium">
+                <span class="text-wine font-bold">✓</span> Fichas completas & notas sensoriais
+              </li>
+              <li class="flex items-center gap-2.5 font-medium">
+                <span class="text-wine font-bold">✓</span> Relatório de rótulos mais consultados
+              </li>
+              <li class="flex items-center gap-2.5 font-medium">
+                <span class="text-wine font-bold">✓</span> Suporte prioritário via WhatsApp
+              </li>
+            </ul>
+          </div>
+
+          <a href="https://wa.me/5531982989377?text=Ol%C3%A1!%20Gostaria%20de%20experimentar%20o%20Plano%20Profissional%20por%2014%20dias%20gr%C3%A1tis." target="_blank" rel="noopener noreferrer" class="mt-8 block text-center py-3.5 px-6 rounded-full bg-wine hover:bg-wine-hover text-white font-medium text-sm transition-all shadow-md hover:shadow-lg">
+            Experimentar 14 dias grátis
+          </a>
+        </div>
+
+        <!-- Plano Premium -->
+        <div class="bg-white p-8 rounded-3xl border border-sand-200 shadow-card flex flex-col justify-between hover:shadow-card-hover transition-all">
+          <div>
+            <h3 class="font-serif text-xl font-bold text-ink">Premium</h3>
+            <p class="text-xs text-ink-muted mt-1">Para redes, hotéis e grandes salões</p>
+            
+            <div class="mt-6 mb-6">
+              <span class="font-serif text-4xl font-bold text-ink">R$ 697</span>
+              <span class="text-xs text-ink-muted">/mês</span>
+            </div>
+
+            <ul class="space-y-3.5 text-sm text-ink-muted border-t border-sand-100 pt-6">
+              <li class="flex items-center gap-2.5">
+                <span class="text-wine font-bold">✓</span> Tudo do plano Profissional
+              </li>
+              <li class="flex items-center gap-2.5">
+                <span class="text-wine font-bold">✓</span> Múltiplas cartas / ambientes / filiais
+              </li>
+              <li class="flex items-center gap-2.5">
+                <span class="text-wine font-bold">✓</span> Suporte multilíngue para turistas
+              </li>
+              <li class="flex items-center gap-2.5">
+                <span class="text-wine font-bold">✓</span> Treinamento guiado para a equipe
+              </li>
+            </ul>
+          </div>
+
+          <a href="https://wa.me/5531982989377?text=Ol%C3%A1!%20Gostaria%20de%20falar%20com%20um%20consultor%20sobre%20o%20Plano%20Premium%20da%20Vinnero." target="_blank" rel="noopener noreferrer" class="mt-8 block text-center py-3.5 px-6 rounded-full border border-sand-200 text-ink font-medium text-sm hover:bg-sand-50 transition-colors">
+            Falar com consultor
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA FINAL / CONTATO ==================== -->
+  <section id="contato" class="py-20 bg-sand-100 border-t border-sand-200 text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      
+      <span class="text-wine text-xs font-bold uppercase tracking-widest">Início Imediato</span>
+      <h2 class="font-serif text-3xl sm:text-4xl font-bold text-ink mt-2 leading-tight">
+        Modernize sua carta de vinhos para o serviço de hoje
+      </h2>
+      <p class="mt-4 text-ink-muted text-sm sm:text-base max-w-xl mx-auto">
+        Converse diretamente com o nosso time para tirar dúvidas ou iniciar o teste da sua casa sem burocracia.
+      </p>
+
+      <div class="mt-8 flex justify-center">
+        <!-- Link para WhatsApp com mensagem personalizada -->
+        <a href="https://wa.me/5531982989377?text=Ol%C3%A1!%20Gostaria%20de%20conhecer%20a%20Vinnero%20e%20testar%20a%20carta%20digital%20no%20meu%20estabelecimento." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-wine hover:bg-wine-hover text-white font-medium px-8 py-4 rounded-full transition-all shadow-md hover:shadow-lg active:scale-95 text-sm sm:text-base">
+          <span>Falar no WhatsApp</span>
+          <span>→</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== RODAPÉ ==================== -->
+  <footer class="py-12 bg-white border-t border-sand-200 text-xs text-ink-muted">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+      
+      <div class="flex items-center gap-4">
+        <!-- Imagem da Logo no Rodapé -->
+        <img src="logo.png" alt="Vinnero" class="h-7 sm:h-8 w-auto object-contain" onerror="this.onerror=null; this.classList.add('hidden'); document.getElementById('footer-logo-svg').classList.remove('hidden');">
+        
+        <div id="footer-logo-svg" class="hidden flex items-center gap-2">
+          <svg class="h-6 w-auto text-[#261E1B]" viewBox="0 0 100 130" fill="currentColor">
+            <circle cx="48" cy="42" r="14" stroke="currentColor" stroke-width="5" fill="none"/>
+            <circle cx="26" cy="58" r="13" stroke="currentColor" stroke-width="5" fill="none"/>
+            <circle cx="70" cy="58" r="13" stroke="currentColor" stroke-width="5" fill="none"/>
+            <circle cx="34" cy="85" r="13" stroke="currentColor" stroke-width="5" fill="none"/>
+            <circle cx="62" cy="85" r="13" stroke="currentColor" stroke-width="5" fill="none"/>
+            <circle cx="48" cy="112" r="12" stroke="currentColor" stroke-width="5" fill="none"/>
+          </svg>
+          <span class="font-sans font-bold text-lg tracking-[0.15em] text-[#261E1B]">VINNERO</span>
+        </div>
+
+        <span class="text-sand-200">|</span>
+        <p>© 2026 Vinnero Web Design Ltda. Todos os direitos reservados.</p>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <button type="button" onclick="openModal('modal-termos')" class="hover:text-ink transition-colors cursor-pointer">Termos</button>
+        <button type="button" onclick="openModal('modal-privacidade')" class="hover:text-ink transition-colors cursor-pointer">Privacidade</button>
+        <a href="mailto:contato@vinnero.com.br" class="hover:text-ink transition-colors font-medium text-wine">contato@vinnero.com.br</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==================== MODAL: TERMOS DE USO ==================== -->
+  <div id="modal-termos" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 bg-black/50 backdrop-blur-sm transition-opacity">
+    <div class="relative w-full max-w-2xl max-h-[85vh] bg-white rounded-3xl shadow-2xl border border-sand-200 flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+      
+      <!-- Cabeçalho do Modal -->
+      <div class="px-6 py-5 border-b border-sand-200 flex items-center justify-between bg-sand-25 shrink-0">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-wine">Documento Legal</span>
+          <h3 class="font-serif text-xl font-bold text-ink">Termos de Uso</h3>
+        </div>
+        <button type="button" onclick="closeModal('modal-termos')" class="w-8 h-8 rounded-full bg-sand-100 hover:bg-sand-200 text-ink-muted hover:text-ink flex items-center justify-center transition-colors text-lg leading-none cursor-pointer">
+          ✕
+        </button>
+      </div>
+
+      <!-- Conteúdo com Rolagem -->
+      <div class="p-6 sm:p-8 overflow-y-auto space-y-5 text-sm text-ink-muted leading-relaxed">
+        <p class="text-xs text-ink-soft">Última atualização: Outubro de 2026 • Vinnero Web Design Ltda.</p>
+
+        <div>
+          <h4 class="font-bold text-ink text-sm mb-1">1. Aceitação dos Termos</h4>
+          <p>Ao aceder ou utilizar a plataforma, website e serviços digitais da Vinnero Web Design Ltda. ("Vinnero"), o utilizador ou estabelecimento parceiro ("Cliente") concorda em cumprir e vincular-se integralmente aos presentes Termos de Uso.</p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-ink text-sm mb-1">2. Descrição dos Serviços</h4>
+          <p>A Vinnero oferece uma solução de software como serviço (SaaS) voltada para a criação, edição, hospedagem e exibição de cartas de vinhos digitais e catálogos interativos acessados via tecnologia QR Code ou links diretos, destinada a restaurantes, hotéis, enotecas e lojas especializadas.</p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-ink text-sm mb-1">3. Cadastro e Conta de Acesso</h4>
+          <p>Para utilizar os recursos de gestão da carta digital, o Cliente deve fornecer dados cadastrais verdadeiros, atualizados e completos. A guarda e confidencialidade das credenciais de acesso é de responsabilidade exclusiva do Cliente.</p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-ink text-sm mb-1">4. Responsabilidade pelos Conteúdos</h4>
+          <p>O Cliente é o único responsável pela veracidade, conformidade e atualização das informações cadastradas em sua carta digital, tais como safras, preços, disponibilidade de estoque e notas de degustação. A Vinnero não se responsabiliza por eventuais divergências de preços ou estoques no salão.</p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-ink text-sm mb-1">5. Planos e Cancelamento</h4>
+          <p>O acesso continuado à plataforma está condicionado ao plano de assinatura contratado. O cancelamento pode ser efetuado a qualquer momento através dos canais de suporte, cessando cobranças para os ciclos subsequentes.</p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-ink text-sm mb-1">6. Propriedade Intelectual</h4>
+          <p>Todo o código-fonte, layout visual, marca registrada, logotipos e ilustrações pertencem exclusivamente à Vinnero Web Design Ltda., sendo proibida qualquer reprodução ou engenharia reversa sem autorização expressa prévia.</p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-ink text-sm mb-1">7. Foro Aplicável</h4>
+          <p>Estes termos são regidos pelas leis da República Federativa do Brasil, elegendo-se o foro da comarca da sede da empresa para dirimir eventuais controvérsias.</p>
+        </div>
+      </div>
+
+      <!-- Rodapé do Modal -->
+      <div class="px-6 py-4 border-t border-sand-200 bg-sand-25 flex justify-end shrink-0">
+        <button type="button" onclick="closeModal('modal-termos')" class="bg-wine hover:bg-wine-hover text-white text-xs font-semibold px-5 py-2.5 rounded-full transition-colors cursor-pointer">
+          Compreendi e Fechar
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== MODAL: POLÍTICA DE PRIVACIDADE ==================== -->
+  <div id="modal-privacidade" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 bg-black/50 backdrop-blur-sm transition-opacity">
+    <div class="relative w-full max-w-2xl max-h-[85vh] bg-white rounded-3xl shadow-2xl border border-sand-200 flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+      
+      <!-- Cabeçalho do Modal -->
+      <div class="px-6 py-5 border-b border-sand-200 flex items-center justify-between bg-sand-25 shrink-0">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-wine">Segurança & LGPD</span>
+          <h3 class="font-serif text-xl font-bold text-ink">Política de Privacidade</h3>
+        </div>
+        <button type="button" onclick="closeModal('modal-privacidade')" class="w-8 h-8 rounded-full bg-sand-100 hover:bg-sand-200 text-ink-muted hover:text-ink flex items-center justify-center transition-colors text-lg leading-none cursor-pointer">
+          ✕
+        </button>
+      </div>
+
+      <!-- Conteúdo com Rolagem -->
+      <div class="p-6 sm:p-8 overflow-y-auto space-y-5 text-sm text-ink-muted leading-relaxed">
+        <p class="text-xs text-ink-soft">Última atualização: Outubro de 2026 • Vinnero Web Design Ltda. (contato@vinnero.com.br)</p>
+
+        <div>
+          <h4 class="font-bold text-ink text-sm mb-1">1. Informações Coletadas</h4>
+          <p>Coletamos dados de cadastro do estabelecimento comercial (razão social, CNPJ, nome do responsável, e-mail e telefone) para viabilizar o contrato de serviço. Para clientes finais nas mesas, o acesso à carta via QR Code não exige login, coletando-se unicamente dados técnicos agregados e anônimos de navegação.</p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-ink text-sm mb-1">2. Finalidade do Tratamento</h4>
+          <p>Os dados coletados são tratados exclusivamente para prestação dos serviços contratados, processamento seguro de assinaturas, suporte técnico e compilação de estatísticas anônimas sobre interesse de categorias de vinhos para o restaurante parceiro.</p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-ink text-sm mb-1">3. Não Compartilhamento</h4>
+          <p>A Vinnero não vende nem transfere quaisquer dados a empresas de marketing. O compartilhamento ocorre tão somente com provedores estritamente necessários à infraestrutura técnica (hospedagem em nuvem e processamento de cobrança).</p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-ink text-sm mb-1">4. Segurança da Informação</h4>
+          <p>Utilizamos protocolos criptografados (SSL/HTTPS) e rígidas barreiras de controle para garantir a integridade e privacidade de todos os registros em nossos servidores.</p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-ink text-sm mb-1">5. Direitos do Titular (LGPD)</h4>
+          <p>Em conformidade com a LGPD (Lei nº 13.709/2018), qualquer parceiro cadastrado pode solicitar a confirmação, correção, exportação ou exclusão de seus dados mediante contato com nosso encarregado pelo e-mail <strong>contato@vinnero.com.br</strong>.</p>
+        </div>
+      </div>
+
+      <!-- Rodapé do Modal -->
+      <div class="px-6 py-4 border-t border-sand-200 bg-sand-25 flex justify-end shrink-0">
+        <button type="button" onclick="closeModal('modal-privacidade')" class="bg-wine hover:bg-wine-hover text-white text-xs font-semibold px-5 py-2.5 rounded-full transition-colors cursor-pointer">
+          Compreendi e Fechar
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== SCRIPTS MODAIS ==================== -->
+  <script>
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.classList.add('overflow-hidden');
+      }
+    }
+
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.classList.remove('overflow-hidden');
+      }
+    }
+
+    // Fechar ao clicar no backdrop (fora da caixa de diálogo)
+    window.addEventListener('click', function(e) {
+      const modalTermos = document.getElementById('modal-termos');
+      const modalPrivacidade = document.getElementById('modal-privacidade');
+      if (e.target === modalTermos) closeModal('modal-termos');
+      if (e.target === modalPrivacidade) closeModal('modal-privacidade');
+    });
+
+    // Fechar com a tecla ESC
+    window.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeModal('modal-termos');
+        closeModal('modal-privacidade');
+      }
+    });
+  </script>
+
+</body>
+</html>
