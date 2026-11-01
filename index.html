@@ -3,9 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vinnero — Carta de Vinhos Digital e Inteligente</title>
+  <title>Vinnero — Carta de Vinhos Digital</title>
   <meta name="description" content="Carta de vinhos digital, intuitiva e em tempo real para restaurantes de alta gastronomia e lojas especializadas.">
   
+  <!-- Favicon Oficial Vinnero (Vetor SVG Embutido) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='110' fill='%23381816'/%3E%3Cg transform='translate(56, 56) scale(0.78)' fill='none' stroke='%23ffffff' stroke-width='24' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M256 60 C270 95 300 110 340 90'/%3E%3Cpath d='M256 60 L180 50 C165 95 195 125 245 118 Z'/%3E%3Cpath d='M256 75 L256 185'/%3E%3Ccircle cx='335' cy='185' r='18'/%3E%3Ccircle cx='256' cy='195' r='56'/%3E%3Ccircle cx='165' cy='260' r='52'/%3E%3Ccircle cx='345' cy='260' r='52'/%3E%3Ccircle cx='200' cy='370' r='52'/%3E%3Ccircle cx='312' cy='370' r='52'/%3E%3Ccircle cx='256' cy='420' r='16'/%3E%3Ccircle cx='256' cy='480' r='48'/%3E%3C/g%3E%3C/svg%3E">
+
   <!-- Tipografia: Playfair Display + Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,6 +23,7 @@
           colors: {
             wine: {
               DEFAULT: '#722F37',
+              dark: '#381816',
               hover: '#5A232A',
               subtle: '#FAF0F2',
               border: '#E8D2D5'
@@ -51,12 +55,11 @@
   </script>
 
   <style>
-    /* Estilização suave para rolagem e detalhes */
     html {
       scroll-behavior: smooth;
     }
     .custom-glass {
-      background: rgba(253, 252, 249, 0.92);
+      background: rgba(253, 252, 249, 0.94);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
     }
@@ -70,11 +73,10 @@
       
       <!-- Logotipo Vinnero -->
       <a href="#" class="flex items-center gap-3 group">
-        <!-- Imagem da Logo com fallback automático -->
         <img src="logo.png" alt="Vinnero" class="h-9 sm:h-10 w-auto object-contain transition-opacity group-hover:opacity-90" onerror="this.onerror=null; this.classList.add('hidden'); document.getElementById('header-logo-svg').classList.remove('hidden');">
         
         <div id="header-logo-svg" class="hidden flex items-center gap-2.5">
-          <svg class="h-8 w-auto text-[#261E1B]" viewBox="0 0 100 130" fill="currentColor">
+          <svg class="h-8 w-auto text-[#381816]" viewBox="0 0 100 130" fill="currentColor">
             <path d="M48 6 C52 14, 58 18, 70 14" stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"/>
             <path d="M48 6 L28 4 C24 16, 32 24, 46 22 Z" stroke="currentColor" stroke-width="4.5" fill="none"/>
             <path d="M48 10 L48 40" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
@@ -87,7 +89,7 @@
             <circle cx="48" cy="98" r="4" stroke="currentColor" stroke-width="2.5" fill="none"/>
             <circle cx="48" cy="112" r="12" stroke="currentColor" stroke-width="5" fill="none"/>
           </svg>
-          <span class="font-sans font-bold text-2xl tracking-[0.15em] text-[#261E1B]">VINNERO</span>
+          <span class="font-sans font-bold text-2xl tracking-[0.15em] text-[#381816]">VINNERO</span>
         </div>
 
         <span class="inline-flex items-center text-[10px] uppercase font-semibold tracking-wider text-wine bg-wine-subtle border border-wine-border px-2.5 py-0.5 rounded-full">
@@ -151,6 +153,9 @@
 
           <!-- Indicadores de Impacto -->
           <div class="mt-10 pt-8 border-t border-sand-200 grid grid-cols-3 gap-6 text-left">
+            <div>
+              <p class="font-serif text-2xl sm:text-3xl font-bold text-wine">0 seg</p>
+              <p class="text-[11px] sm:text-xs text-ink-muted mt-1 uppercase tracking-wider font-medium">Tempo para atualizar</p>
             </div>
             <div>
               <p class="font-serif text-2xl sm:text-3xl font-bold text-wine">Zero</p>
@@ -427,7 +432,7 @@
           <div class="w-28 h-28 bg-sand-50 border border-sand-200 rounded-2xl flex flex-col items-center justify-center p-3 shadow-xs">
             <img src="logo.png" alt="Vinnero" class="h-8 w-auto object-contain mb-1" onerror="this.onerror=null; this.classList.add('hidden'); document.getElementById('mockup-logo-svg').classList.remove('hidden');">
             <div id="mockup-logo-svg" class="hidden flex items-center justify-center mb-1">
-              <svg class="h-6 w-auto text-[#261E1B]" viewBox="0 0 100 130" fill="currentColor">
+              <svg class="h-6 w-auto text-[#381816]" viewBox="0 0 100 130" fill="currentColor">
                 <circle cx="48" cy="42" r="14" stroke="currentColor" stroke-width="5" fill="none"/>
                 <circle cx="26" cy="58" r="13" stroke="currentColor" stroke-width="5" fill="none"/>
                 <circle cx="70" cy="58" r="13" stroke="currentColor" stroke-width="5" fill="none"/>
@@ -590,7 +595,7 @@
         <img src="logo.png" alt="Vinnero" class="h-7 sm:h-8 w-auto object-contain" onerror="this.onerror=null; this.classList.add('hidden'); document.getElementById('footer-logo-svg').classList.remove('hidden');">
         
         <div id="footer-logo-svg" class="hidden flex items-center gap-2">
-          <svg class="h-6 w-auto text-[#261E1B]" viewBox="0 0 100 130" fill="currentColor">
+          <svg class="h-6 w-auto text-[#381816]" viewBox="0 0 100 130" fill="currentColor">
             <circle cx="48" cy="42" r="14" stroke="currentColor" stroke-width="5" fill="none"/>
             <circle cx="26" cy="58" r="13" stroke="currentColor" stroke-width="5" fill="none"/>
             <circle cx="70" cy="58" r="13" stroke="currentColor" stroke-width="5" fill="none"/>
@@ -598,7 +603,7 @@
             <circle cx="62" cy="85" r="13" stroke="currentColor" stroke-width="5" fill="none"/>
             <circle cx="48" cy="112" r="12" stroke="currentColor" stroke-width="5" fill="none"/>
           </svg>
-          <span class="font-sans font-bold text-lg tracking-[0.15em] text-[#261E1B]">VINNERO</span>
+          <span class="font-sans font-bold text-lg tracking-[0.15em] text-[#381816]">VINNERO</span>
         </div>
 
         <span class="text-sand-200">|</span>
