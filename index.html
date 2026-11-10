@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vinnero — Carta de Vinhos Digital</title>
-  <meta name="description" content="Carta de vinhos digital, intuitiva e em tempo real para restaurantes de alta gastronomia e lojas especializadas.">
+  <title>Vinnero — Carta de Vinhos Digital & Web Design</title>
+  <meta name="description" content="Carta de vinhos digital, interativa e em tempo real para restaurantes de alta gastronomia, wine bars e lojas de vinho. Conheça também Vinnero Web Design.">
   
   <!-- Favicon Oficial Vinnero (Vetor SVG Embutido) -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='110' fill='%23381816'/%3E%3Cg transform='translate(56, 56) scale(0.78)' fill='none' stroke='%23ffffff' stroke-width='24' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M256 60 C270 95 300 110 340 90'/%3E%3Cpath d='M256 60 L180 50 C165 95 195 125 245 118 Z'/%3E%3Cpath d='M256 75 L256 185'/%3E%3Ccircle cx='335' cy='185' r='18'/%3E%3Ccircle cx='256' cy='195' r='56'/%3E%3Ccircle cx='165' cy='260' r='52'/%3E%3Ccircle cx='345' cy='260' r='52'/%3E%3Ccircle cx='200' cy='370' r='52'/%3E%3Ccircle cx='312' cy='370' r='52'/%3E%3Ccircle cx='256' cy='420' r='16'/%3E%3Ccircle cx='256' cy='480' r='48'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='110' fill='%23381816'/%3E%3Cg transform='translate(56, 56) scale(0.78)' fill='none' stroke='%23C5A059' stroke-width='24' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M256 60 C270 95 300 110 340 90'/%3E%3Cpath d='M256 60 L180 50 C165 95 195 125 245 118 Z'/%3E%3Cpath d='M256 75 L256 185'/%3E%3Ccircle cx='335' cy='185' r='18'/%3E%3Ccircle cx='256' cy='195' r='56'/%3E%3Ccircle cx='165' cy='260' r='52'/%3E%3Ccircle cx='345' cy='260' r='52'/%3E%3Ccircle cx='200' cy='370' r='52'/%3E%3Ccircle cx='312' cy='370' r='52'/%3E%3Ccircle cx='256' cy='420' r='16'/%3E%3Ccircle cx='256' cy='480' r='48'/%3E%3C/g%3E%3C/svg%3E">
 
   <!-- Tipografia: Playfair Display + Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,11 +22,18 @@
         extend: {
           colors: {
             wine: {
-              DEFAULT: '#722F37',
+              DEFAULT: '#5B1323',
               dark: '#381816',
-              hover: '#5A232A',
+              deep: '#2D0A11',
+              hover: '#4A0E1C',
               subtle: '#FAF0F2',
               border: '#E8D2D5'
+            },
+            gold: {
+              DEFAULT: '#C5A059',
+              light: '#DFCA9D',
+              dark: '#9E7D3B',
+              subtle: '#FDF9F0'
             },
             sand: {
               25: '#FDFCF9',
@@ -47,7 +54,7 @@
           boxShadow: {
             'card': '0 4px 20px -2px rgba(27, 27, 30, 0.04)',
             'card-hover': '0 12px 30px -4px rgba(27, 27, 30, 0.08)',
-            'phone': '0 25px 60px -15px rgba(114, 47, 55, 0.12), 0 10px 25px -5px rgba(0, 0, 0, 0.04)'
+            'phone': '0 25px 60px -15px rgba(91, 19, 35, 0.15), 0 10px 25px -5px rgba(0, 0, 0, 0.04)'
           }
         }
       }
@@ -63,20 +70,25 @@
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
     }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #C5A059 0%, #9E7D3B 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
   </style>
 </head>
 <body class="bg-sand-25 text-ink font-sans antialiased selection:bg-wine selection:text-white">
 
   <!-- ==================== HEADER NAVEGAÇÃO ==================== -->
   <header class="sticky top-0 z-50 custom-glass border-b border-sand-200/80 transition-all">
-    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between gap-4">
       
-      <!-- Logotipo Vinnero -->
-      <a href="#" class="flex items-center gap-3 group">
-        <img src="logo.png" alt="Vinnero" class="h-9 sm:h-10 w-auto object-contain transition-opacity group-hover:opacity-90" onerror="this.onerror=null; this.classList.add('hidden'); document.getElementById('header-logo-svg').classList.remove('hidden');">
+      <!-- Logotipo Vinnero (intacto) -->
+      <a href="#" class="flex items-center gap-2.5 shrink-0 group">
+        <img src="logo.png" alt="Vinnero" class="h-8 sm:h-9 w-auto object-contain transition-opacity group-hover:opacity-90" onerror="this.onerror=null; this.classList.add('hidden'); document.getElementById('header-logo-svg').classList.remove('hidden');">
         
-        <div id="header-logo-svg" class="hidden flex items-center gap-2.5">
-          <svg class="h-8 w-auto text-[#381816]" viewBox="0 0 100 130" fill="currentColor">
+        <div id="header-logo-svg" class="hidden flex items-center gap-2">
+          <svg class="h-7 w-auto text-wine-dark" viewBox="0 0 100 130" fill="currentColor">
             <path d="M48 6 C52 14, 58 18, 70 14" stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"/>
             <path d="M48 6 L28 4 C24 16, 32 24, 46 22 Z" stroke="currentColor" stroke-width="4.5" fill="none"/>
             <path d="M48 10 L48 40" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
@@ -89,29 +101,55 @@
             <circle cx="48" cy="98" r="4" stroke="currentColor" stroke-width="2.5" fill="none"/>
             <circle cx="48" cy="112" r="12" stroke="currentColor" stroke-width="5" fill="none"/>
           </svg>
-          <span class="font-sans font-bold text-2xl tracking-[0.15em] text-[#381816]">VINNERO</span>
+          <span class="font-sans font-bold text-xl tracking-[0.15em] text-wine-dark">VINNERO</span>
         </div>
 
-        <span class="inline-flex items-center text-[10px] uppercase font-semibold tracking-wider text-wine bg-wine-subtle border border-wine-border px-2.5 py-0.5 rounded-full">
+        <span class="hidden lg:inline-flex items-center text-[10px] uppercase font-semibold tracking-wider text-wine bg-wine-subtle border border-wine-border px-2 py-0.5 rounded-full ml-1">
           Carta Digital
         </span>
       </a>
 
-      <!-- Links Desktop -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-ink-muted">
-        <a href="#como-funciona" class="hover:text-ink transition-colors">Como funciona</a>
-        <a href="#recursos" class="hover:text-ink transition-colors">Recursos</a>
-        <a href="#experiencia" class="hover:text-ink transition-colors">No salão</a>
-        <a href="#planos" class="hover:text-ink transition-colors">Planos</a>
+      <!-- Links Desktop (arejados e proporcionais) -->
+      <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-[13px] font-medium text-ink-muted">
+        <a href="#como-funciona" class="hover:text-wine transition-colors">Como funciona</a>
+        <a href="#recursos" class="hover:text-wine transition-colors">Recursos</a>
+        <a href="#webdesign" class="inline-flex items-center gap-1.5 hover:text-wine transition-colors">
+          <span>Web Design</span>
+          <span class="text-[9px] uppercase tracking-wider bg-gold/15 text-gold-dark px-1.5 py-0.5 rounded-full font-bold border border-gold/30">Novo</span>
+        </a>
+        <a href="#experiencia" class="hover:text-wine transition-colors">No salão</a>
+        <a href="#planos" class="hover:text-wine transition-colors">Planos</a>
       </nav>
 
-      <!-- Botão CTA Direto -->
-      <div class="flex items-center gap-3">
-        <a href="https://wa.me/5531982989377?text=Ol%C3%A1!%20Gostaria%20de%20come%C3%A7ar%20o%20teste%20gratuito%20da%20Vinnero." target="_blank" rel="noopener noreferrer" class="bg-wine hover:bg-wine-hover text-white text-xs sm:text-sm font-medium px-5 py-2.5 rounded-full transition-all duration-200 shadow-sm hover:shadow active:scale-95">
+      <!-- Botão CTA & Botão Mobile (Mais compacto e elegante) -->
+      <div class="flex items-center gap-2.5 shrink-0">
+        <a href="https://wa.me/5531982989377?text=Ol%C3%A1!%20Gostaria%20de%20come%C3%A7ar%20o%20teste%20gratuito%20da%20Vinnero." target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center bg-wine hover:bg-wine-hover text-white text-xs font-medium px-4 py-2 rounded-full transition-all duration-200 shadow-xs hover:shadow active:scale-95 whitespace-nowrap">
           Começar teste
         </a>
+
+        <!-- Botão Menu Mobile -->
+        <button id="mobile-menu-btn" type="button" class="md:hidden p-2 rounded-lg text-ink-muted hover:text-ink focus:outline-none" aria-label="Abrir menu">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
       </div>
 
+    </div>
+
+    <!-- Gaveta Menu Mobile -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-sand-200 bg-sand-25 px-6 pt-3 pb-5 space-y-2.5">
+      <a href="#como-funciona" class="block py-1.5 text-sm font-medium text-ink-muted hover:text-wine" onclick="toggleMobileMenu()">Como funciona</a>
+      <a href="#recursos" class="block py-1.5 text-sm font-medium text-ink-muted hover:text-wine" onclick="toggleMobileMenu()">Recursos</a>
+      <a href="#webdesign" class="flex items-center justify-between py-1.5 text-sm font-medium text-ink hover:text-wine" onclick="toggleMobileMenu()">
+        <span>Web Design</span>
+        <span class="text-[9px] uppercase tracking-wider bg-gold/15 text-gold-dark px-2 py-0.5 rounded-full font-bold">Novo</span>
+      </a>
+      <a href="#experiencia" class="block py-1.5 text-sm font-medium text-ink-muted hover:text-wine" onclick="toggleMobileMenu()">No salão</a>
+      <a href="#planos" class="block py-1.5 text-sm font-medium text-ink-muted hover:text-wine" onclick="toggleMobileMenu()">Planos</a>
+      <a href="https://wa.me/5531982989377?text=Ol%C3%A1!%20Gostaria%20de%20come%C3%A7ar%20o%20teste%20gratuito%20da%20Vinnero." target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-wine hover:bg-wine-hover text-white text-xs font-medium py-2.5 rounded-full mt-3">
+        Começar teste
+      </a>
     </div>
   </header>
 
@@ -297,14 +335,14 @@
     </div>
   </section>
 
-  <!-- ==================== RECURSOS / FUNCIONALIDADES ==================== -->
+  <!-- ==================== RECURSOS / DIFERENCIAIS ==================== -->
   <section id="recursos" class="py-24">
     <div class="max-w-6xl mx-auto px-6">
       
       <div class="max-w-2xl mx-auto text-center mb-16">
         <span class="text-wine text-xs font-bold uppercase tracking-widest">Recursos Essenciais</span>
         <h2 class="font-serif text-3xl sm:text-4xl font-bold mt-2 text-ink">Pensado para a rotina dinâmica do salão</h2>
-        <p class="text-sm text-ink-muted mt-3">Tudo o que seu restaurante ou loja especializada precisa para vender melhor.</p>
+        <p class="text-sm text-ink-muted mt-3">Tudo o que seu restaurante ou loja especializada precisa para encantar e vender melhor.</p>
       </div>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -367,8 +405,86 @@
     </div>
   </section>
 
+  <!-- ==================== VINNERO WEB DESIGN (NOVO SERVIÇO B2B) ==================== -->
+  <section id="webdesign" class="py-20 bg-wine-deep text-white relative overflow-hidden">
+    <!-- Efeito de iluminação suave de fundo -->
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-wine/40 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        
+        <div class="lg:col-span-7">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-gold/30 text-gold-light text-xs font-semibold uppercase tracking-wider mb-5">
+            <span class="w-2 h-2 rounded-full bg-gold animate-ping"></span>
+            Novo Serviço Exclusivo
+          </div>
+
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-tight text-white">
+            Vinnero Web Design.<br>
+            <span class="text-gold-light">Sites sofisticados</span> para o universo do vinho & gastronomia.
+          </h2>
+
+          <p class="mt-5 text-sm sm:text-base text-stone-300 leading-relaxed max-w-xl">
+            Além da carta digital de excelência, criamos websites sob medida para restaurantes, vinícolas, importadoras e bistrôs. Design autoral, responsivo e integrado para converter visitantes em clientes no salão.
+          </p>
+
+          <div class="mt-8 grid sm:grid-cols-2 gap-4 text-xs font-medium text-stone-200">
+            <div class="flex items-center gap-2.5">
+              <span class="text-gold">✦</span> Design de alta gastronomia
+            </div>
+            <div class="flex items-center gap-2.5">
+              <span class="text-gold">✦</span> Otimizado para celular e Google
+            </div>
+            <div class="flex items-center gap-2.5">
+              <span class="text-gold">✦</span> Integração com reserva e WhatsApp
+            </div>
+            <div class="flex items-center gap-2.5">
+              <span class="text-gold">✦</span> Hospedagem rápida e domínio próprio
+            </div>
+          </div>
+
+          <div class="mt-8 flex flex-wrap items-center gap-4">
+            <a href="/webdesign" class="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-wine-deep font-semibold px-7 py-3.5 rounded-full transition-all shadow-lg hover:shadow-gold/20 active:scale-95 text-sm">
+              <span>Conhecer o Vinnero Web Design</span>
+              <span>→</span>
+            </a>
+            <a href="https://wa.me/5531982989377?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20servi%C3%A7o%20de%20Web%20Design%20da%20Vinnero." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-medium px-6 py-3.5 rounded-full border border-white/20 transition-all text-sm">
+              Falar com especialista
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div class="bg-gradient-to-b from-white/10 to-white/5 p-6 sm:p-8 rounded-3xl border border-white/10 backdrop-blur-sm shadow-2xl">
+            <div class="text-xs uppercase tracking-widest text-gold-light font-semibold mb-2">Para quem é este serviço</div>
+            <h3 class="font-serif text-2xl font-bold text-white mb-4">Posicionamento de marca para o setor de vinhos</h3>
+            <p class="text-xs text-stone-300 leading-relaxed mb-6">
+              Desenvolvido por quem entende de carta, adega e serviço. O seu negócio ganha um endereço digital elegante que reflete o cuidado dos seus pratos e rótulos.
+            </p>
+            <div class="space-y-3 border-t border-white/10 pt-4 text-xs text-stone-300">
+              <div class="flex items-center justify-between">
+                <span>Prazo de entrega ágil</span>
+                <span class="text-white font-semibold">a partir de 7 dias</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span>Compatibilidade total</span>
+                <span class="text-white font-semibold">Desktop & Mobile</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span>Pacote conjunto com Carta Digital</span>
+                <span class="text-gold font-bold">Condição Especial</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ==================== EVOLUÇÃO CONTÍNUA & FEEDBACK DOS PARCEIROS ==================== -->
-  <section class="py-16 bg-white border-y border-sand-200">
+  <section class="py-16 bg-white border-b border-sand-200">
     <div class="max-w-6xl mx-auto px-6">
       <div class="bg-gradient-to-br from-sand-50 via-sand-25 to-white border border-sand-200/90 rounded-3xl p-8 sm:p-12 shadow-card flex flex-col lg:flex-row items-center justify-between gap-10">
         
@@ -645,7 +761,7 @@
 
         <div>
           <h4 class="font-bold text-ink text-sm mb-1">2. Descrição dos Serviços</h4>
-          <p>A Vinnero oferece uma solução de software como serviço (SaaS) voltada para a criação, edição, hospedagem e exibição de cartas de vinhos digitais e catálogos interativos acessados via tecnologia QR Code ou links diretos, destinada a restaurantes, hotéis, enotecas e lojas especializadas.</p>
+          <p>A Vinnero oferece uma solução de software como serviço (SaaS) voltada para a criação, edição, hospedagem e exibição de cartas de vinhos digitais e catálogos interativos acessados via tecnologia QR Code ou links diretos, além de serviços especializados de criação de websites para o setor gastronômico e vitivinícola.</p>
         </div>
 
         <div>
@@ -720,7 +836,7 @@
 
         <div>
           <h4 class="font-bold text-ink text-sm mb-1">4. Segurança da Informação</h4>
-          <p>Utilizamos protocolos criptografados (SSL/HTTPS) e rígidas barreiras de controle para garantir a integridade e privacidade de todos os registros em nossos servidores.</p>
+          <p>Utilizamos protocolos criptografados (SSL/HTTPS) e rígidas barreiras de controle para garantir a integridade e privacidade de todos os registros em nossos servidores com infraestrutura nacional de alto desempenho.</p>
         </div>
 
         <div>
@@ -739,8 +855,23 @@
     </div>
   </div>
 
-  <!-- ==================== SCRIPTS MODAIS ==================== -->
+  <!-- ==================== SCRIPTS ==================== -->
   <script>
+    // Menu mobile toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    function toggleMobileMenu() {
+      if (mobileMenu) {
+        mobileMenu.classList.toggle('hidden');
+      }
+    }
+
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+    }
+
+    // Controle dos Modais
     function openModal(id) {
       const modal = document.getElementById(id);
       if (modal) {
